@@ -1,5 +1,6 @@
 /*
- * Copyright 2021, Seqera Labs
+ * Copyright 2020-2022, Seqera Labs
+ * Copyright 2013-2019, Centre for Genomic Regulation (CRG)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +15,29 @@
  * limitations under the License.
  */
 
-package nextflow.hello
+package nextflow.openlineage
 
-import nextflow.Session
-import spock.lang.Specification
+import com.google.common.jimfs.Configuration
+import com.google.common.jimfs.Jimfs
+
+import java.nio.file.Files
+import java.nio.file.Path
 
 /**
  *
  * @author Paolo Di Tommaso <paolo.ditommaso@gmail.com>
  */
-class HelloFactoryTest extends Specification {
+class TestHelper {
 
-    def 'should return observer' () {
-        when:
-        def result = new HelloFactory().create(Mock(Session))
-        then:
-        result.size()==1
-        result[0] instanceof HelloObserver
+    static private fs = Jimfs.newFileSystem(Configuration.unix());
+
+    static Path createInMemTempFile(String name='temp.file', String content=null) {
+        Path tmp = fs.getPath("/tmp");
+        tmp.mkdir()
+        def result = Files.createTempDirectory(tmp, 'test').resolve(name)
+        if( content )
+            result.text = content
+        return result
     }
 
 }

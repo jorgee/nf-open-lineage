@@ -58,8 +58,11 @@ dependencies {
     compileOnly "io.nextflow:nextflow:$nextflowVersion"
     compileOnly 'org.slf4j:slf4j-api:1.7.10'
     compileOnly 'org.pf4j:pf4j:3.4.1'
+    compileOnly "io.micrometer:micrometer-core:1.14.1"
+    compileOnly "io.openlineage:openlineage-java:1.26.0"
     // add here plugins depepencies
-
+    implementation "io.openlineage:openlineage-java:1.26.0"
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.4.1'
     // test configuration
     testImplementation "org.apache.groovy:groovy:4.0.18"
     testImplementation "org.apache.groovy:groovy-nio:4.0.18"
