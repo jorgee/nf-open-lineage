@@ -19,19 +19,19 @@ Nextflow pipeline is published using the OpenLineage API.
     
     Plugin Gradle build file. Project dependencies should be added here.
 
-- `plugins/nf-hello/src/resources/META-INF/MANIFEST.MF` 
+- `plugins/nf-open-lineage/src/resources/META-INF/MANIFEST.MF` 
     
     Manifest file defining the plugin attributes e.g. name, version, etc. The attribute `Plugin-Class` declares the plugin main class. This class should extend the base class `nextflow.plugin.BasePlugin` e.g. `nextflow.openlineage.OpenLineagePlugin`.
 
-- `plugins/nf-hello/src/resources/META-INF/extensions.idx`
+- `plugins/nf-open-lineage/src/resources/META-INF/extensions.idx`
     
     This file declares one or more extension classes provided by the plugin. Each line should contain the fully qualified name of a Java class that implements the `org.pf4j.ExtensionPoint` interface (or a sub-interface).
 
-- `plugins/nf-hello/src/main` 
+- `plugins/nf-open-lineage/src/main` 
 
     The plugin implementation sources.
 
-- `plugins/nf-hello/src/test` 
+- `plugins/nf-open-lineage/src/test` 
 
     The plugin unit tests. 
 

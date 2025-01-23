@@ -8,4 +8,4 @@ plugins {
 rootProject.name = 'nf-open-lineage'
 include('plugins')
 include('plugins:nf-open-lineage')
-includeBuild('../nextflow')
+//includeBuild('../nextflow')
